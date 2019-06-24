@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="header clearfix">
+    <nav>
+      <ul class="nav nav-pills float-right">
+        <li class="nav-item">
+          <a [routerLink]="'tshirts'" [routerLinkActive]="'active'" class="nav-link">Tshirts</a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="'contact'" [routerLinkActive]="'active'" class="nav-link">Contact</a>
+        </li>
+      </ul>
+    </nav>
+    <h3>
+      Spectator
+      <small class="text-muted">example</small>
+    </h3>
+  </div>
+
+  <router-outlet></router-outlet>
+
+  <footer class="footer">
+    <p>© <a href="https://michalczukm.xyz">michalczukm.xyz</a> {{ year }}</p>
+  </footer>
+
+</div>

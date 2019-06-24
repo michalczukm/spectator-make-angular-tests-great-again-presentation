@@ -1,0 +1,19 @@
+img.tshirts-card-img {
+  height: 255px;
+  width: auto;
+  display: block;
+}
+
+.card {
+  margin: 10px;
+  padding: 10px;
+  max-width: 250px;
+  justify-content: space-between;
+}
+
+.cart-title {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+

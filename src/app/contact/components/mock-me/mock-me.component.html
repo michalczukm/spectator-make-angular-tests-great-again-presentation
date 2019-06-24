@@ -1,0 +1,8 @@
+<h2 style="text-align: center;">We don't want this implementation. We'll mock it!</h2>
+
+<div class="container" [ngClass]="{'black-border': !applySomeStyle, 'red-border': applySomeStyle}">
+  <input [(ngModel)]="inputData" />
+  <p class="display-input">inputData: {{ inputData }}</p>
+
+  <button class="btn btn-primary" type="button" (click)="setStyle()">Click to add some style</button>
+</div>

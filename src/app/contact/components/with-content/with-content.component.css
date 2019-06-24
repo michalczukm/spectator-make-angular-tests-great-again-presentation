@@ -1,0 +1,7 @@
+.container {
+  border: 2px blue solid;
+}
+
+.content {
+  border: 2px blueviolet dashed;
+}

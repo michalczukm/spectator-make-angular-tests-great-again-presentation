@@ -1,0 +1,13 @@
+.jumbotron {
+  background-image: url('/assets/jumboton.jpg');
+  background-position: center;
+  background-position-y: -170px;
+}
+
+.lead {
+  color: white;
+}
+
+.row {
+  justify-content: center;
+}
