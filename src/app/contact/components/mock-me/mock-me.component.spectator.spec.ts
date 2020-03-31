@@ -1,22 +1,18 @@
-import {createTestComponentFactory, Spectator} from '@netbasal/spectator';
+import {createComponentFactory, Spectator} from '@ngneat/spectator';
 import {MockComponents} from 'ng-mocks';
 import {MockMeComponent} from './mock-me.component';
 import {FormsModule} from '@angular/forms';
 
 describe('MockMeComponent', () => {
   let spectator: Spectator<MockMeComponent>;
-  const createComponent: (
-    componentParameters?: Partial<MockMeComponent>,
-    detectChanges?: boolean
-  ) => Spectator<MockMeComponent> = createTestComponentFactory({
+
+  const componentFactory = createComponentFactory({
     component: MockMeComponent,
     declarations: MockComponents(),
     imports: [FormsModule]
   });
 
-  beforeEach(() => {
-    spectator = createComponent();
-  });
+  beforeEach(() => void (spectator = componentFactory()));
 
   it('should create', () => {
     expect(spectator.component).toBeTruthy();

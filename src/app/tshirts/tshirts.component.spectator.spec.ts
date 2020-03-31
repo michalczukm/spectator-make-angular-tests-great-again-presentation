@@ -1,4 +1,4 @@
-import {Spectator, createTestComponentFactory, mockProvider, SpyObject} from '@netbasal/spectator';
+import {Spectator, createComponentFactory, mockProvider, SpyObject} from '@ngneat/spectator';
 import {ToastrService} from 'ngx-toastr';
 import {of} from 'rxjs';
 import {TshirtsComponent} from './tshirts.component';
@@ -7,19 +7,19 @@ import {TshirtItemComponent} from './components/tshirt-item/tshirt-item.componen
 
 describe('TshirtsComponentSpectator', () => {
   let spectator: Spectator<TshirtsComponent>;
-  const createComponent: (
-    componentParameters?: Partial<TshirtsComponent>,
-    detectChanges?: boolean
-  ) => Spectator<TshirtsComponent> = createTestComponentFactory({
+
+  const createComponent = createComponentFactory({
     component: TshirtsComponent,
     declarations: [TshirtItemComponent],
     providers: [mockProvider(CartService), mockProvider(TshirtsService), mockProvider(ToastrService)]
   });
 
   beforeEach(() => {
-    spectator = createComponent({}, false);
+    spectator = createComponent({
+      detectChanges: false
+    });
 
-    spectator.get<TshirtsService>(TshirtsService).get.and.returnValue(of([
+    spectator.inject<TshirtsService>(TshirtsService).get.and.returnValue(of([
       {
         name: 'sample tshirt 1',
         imageUrl: 'https://example.com/image-1.png'
@@ -45,7 +45,7 @@ describe('TshirtsComponentSpectator', () => {
   describe('buy item', () => {
     it('should buy second item when clicked event emited', () => {
       // arrange
-      const cartService: CartService & SpyObject<CartService> = spectator.get<CartService>(CartService);
+      const cartService: CartService & SpyObject<CartService> = spectator.inject<CartService>(CartService);
 
       // act
       const items: TshirtItemComponent[] = spectator.queryAll<TshirtItemComponent>(TshirtItemComponent);
@@ -64,10 +64,10 @@ describe('TshirtsComponentSpectator', () => {
 
     it('should show toast on success', () => {
       // arrange
-      const cartService: CartService & SpyObject<CartService> = spectator.get<CartService>(CartService);
+      const cartService: CartService & SpyObject<CartService> = spectator.inject<CartService>(CartService);
       cartService.buy.and.returnValue(of(undefined));
 
-      const toastrService: ToastrService & SpyObject<ToastrService> = spectator.get<ToastrService>(ToastrService);
+      const toastrService: ToastrService & SpyObject<ToastrService> = spectator.inject<ToastrService>(ToastrService);
 
       const items: TshirtItemComponent[] = spectator.queryAll<TshirtItemComponent>(TshirtItemComponent);
 

@@ -1,24 +1,22 @@
-import {Spectator, createTestComponentFactory} from '@netbasal/spectator';
+import {Spectator, createComponentFactory} from '@ngneat/spectator';
 import {TshirtItemComponent} from './tshirt-item.component';
 
 describe('TshirtItemComponentSpectator', () => {
   let spectator: Spectator<TshirtItemComponent>;
 
-  const createComponent: (
-    componentParameters?: Partial<TshirtItemComponent>,
-    detectChanges?: boolean
-  ) => Spectator<TshirtItemComponent> = createTestComponentFactory({
-    component: TshirtItemComponent
+  const createComponent = createComponentFactory({
+    component: TshirtItemComponent,
   });
 
-  beforeEach(() => {
+  beforeEach(() => void (
     spectator = createComponent({
-      item: {
-        imageUrl: 'https://example.com/image.png',
-        name: 'some tshirt'
+      props: {
+        item: {
+          imageUrl: 'https://example.com/image.png',
+          name: 'some tshirt'
+        }
       }
-    });
-  });
+    })));
 
   it('should create', () => {
     expect(spectator.component).toBeTruthy();
@@ -58,4 +56,5 @@ describe('TshirtItemComponentSpectator', () => {
       expect('button').not.toExist();
     });
   });
-});
+})
+;
