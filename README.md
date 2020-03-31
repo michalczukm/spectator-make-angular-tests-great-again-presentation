@@ -1,7 +1,13 @@
 # Spectator: Make Angular tests great again
 
-This repository contains code examples for mine presentation about [Spectator](https://github.com/NetanelBasal/spectator), huge :clap: :clap: :clap: for this library!
-![spectator-logo](assets/spectator-logo.png?raw=true "Spectator logo")
+This repository contains code examples for mine presentation about [Spectator](https://github.com/ngneat/spectator), huge :clap: :clap: :clap: for this library!
+
+![spectator-logo](assets/spectator-logo.svg)
+
+### Recently
+
+- ☝️ Updated to Angular v9
+- ☝️ Updated to Spectator v5
 
 ## How to run this example
 
@@ -14,7 +20,7 @@ This project was created via `@angular/cli`.
 ## How to add Spectator to your project?
 
 ```
-npm i -D @netbasal/spectator ng-mocks
+npm i -D @ngneat/spectator ng-mocks
 ```
 
 ## Presentation
