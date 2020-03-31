@@ -56,8 +56,18 @@ describe('TshirtsComponentTestBed', () => {
 
   describe('display items', () => {
     it('should display all tshirts', () => {
-      const items: TshirtItemComponent[] = fixture.debugElement.queryAll(By.directive(TshirtItemComponent)).map(c => c.componentInstance);
+      const items: TshirtItemComponent[] =
+        fixture.debugElement.queryAll(
+          By.directive(TshirtItemComponent)
+        ).map(c => c.componentInstance);
 
+      expect(items.map(c => c.item)).toEqual([{
+        name: 'sample tshirt 1',
+        imageUrl: 'https://example.com/image-1.png'
+      }, {
+        name: 'sample tshirt 2',
+        imageUrl: 'https://example.com/image-2.png'
+      }]);
       expect(items.length).toBe(2);
     });
   });
