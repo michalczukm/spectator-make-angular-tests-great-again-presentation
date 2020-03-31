@@ -1,0 +1,34 @@
+[
+  {
+    "name": "another fancy sweater",
+    "imageUrl": "assets/tshirts/img/another-fancy-sweater.png"
+  },
+  {
+    "name": "black",
+    "imageUrl": "assets/tshirts/img/black.png"
+  },
+  {
+    "name": "blue",
+    "imageUrl": "assets/tshirts/img/blue.png"
+  },
+  {
+    "name": "fancy sweater",
+    "imageUrl": "assets/tshirts/img/fancy-sweater.png"
+  },
+  {
+    "name": "kiwi",
+    "imageUrl": "assets/tshirts/img/kiwi.png"
+  },
+  {
+    "name": "red which was washed yesterday",
+    "imageUrl": "assets/tshirts/img/red-washed-yesterday.png"
+  },
+  {
+    "name": "red",
+    "imageUrl": "assets/tshirts/img/red.png"
+  },
+  {
+    "name": "white",
+    "imageUrl": "assets/tshirts/img/white.png"
+  }
+]
