@@ -1,10 +1,15 @@
 <div class="jumbotron">
   <h1 class="display-3">Buy some tshirts</h1>
-  <p class="lead">We proudly present you some random images of tshirts from pixabay.com</p>
+  <p class="lead">
+    We proudly present you some random images of tshirts from pixabay.com
+  </p>
 </div>
 
 <div class="row">
   <ng-container *ngFor="let tshirt of tshirts$ | async">
-    <app-tshirt-item [item]="tshirt" (buyClicked)="buy($event)"></app-tshirt-item>
+    <app-tshirt-item
+      [item]="tshirt"
+      (buyClicked)="buy($event)"
+    ></app-tshirt-item>
   </ng-container>
 </div>

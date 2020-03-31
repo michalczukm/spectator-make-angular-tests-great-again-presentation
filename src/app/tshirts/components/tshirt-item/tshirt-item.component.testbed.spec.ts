@@ -1,8 +1,8 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {TshirtItemComponent} from './tshirt-item.component';
-import {By} from '@angular/platform-browser';
-import {DebugElement} from '@angular/core';
+import { TshirtItemComponent } from './tshirt-item.component';
+import { By } from '@angular/platform-browser';
+import { DebugElement } from '@angular/core';
 
 describe('TshirtItemComponentTestBed', () => {
   let component: TshirtItemComponent;
@@ -10,9 +10,8 @@ describe('TshirtItemComponentTestBed', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [TshirtItemComponent]
-    })
-      .compileComponents();
+      declarations: [TshirtItemComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -20,7 +19,7 @@ describe('TshirtItemComponentTestBed', () => {
     component = fixture.componentInstance;
     component.item = {
       imageUrl: 'https://example.com/image.png',
-      name: 'some tshirt'
+      name: 'some tshirt',
     };
 
     fixture.detectChanges();
@@ -39,7 +38,9 @@ describe('TshirtItemComponentTestBed', () => {
     });
 
     it('should display item name', () => {
-      const nameElement: DebugElement = fixture.debugElement.query(By.css('h4'));
+      const nameElement: DebugElement = fixture.debugElement.query(
+        By.css('h4')
+      );
 
       expect(nameElement.nativeElement.innerHTML).toBe('some tshirt');
     });
@@ -47,14 +48,16 @@ describe('TshirtItemComponentTestBed', () => {
 
   describe('buy item', () => {
     it('should emit buy item event on click', () => {
-      component.buyClicked.subscribe(actualEvent => {
+      component.buyClicked.subscribe((actualEvent) => {
         expect(actualEvent).toEqual({
           imageUrl: 'https://example.com/image.png',
-          name: 'some tshirt'
+          name: 'some tshirt',
         });
       });
 
-      fixture.debugElement.query(By.css('button')).triggerEventHandler('click', {});
+      fixture.debugElement
+        .query(By.css('button'))
+        .triggerEventHandler('click', {});
     });
   });
 

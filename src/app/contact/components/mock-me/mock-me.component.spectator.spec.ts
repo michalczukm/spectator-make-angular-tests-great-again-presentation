@@ -1,7 +1,7 @@
-import {createComponentFactory, Spectator} from '@ngneat/spectator';
-import {MockComponents} from 'ng-mocks';
-import {MockMeComponent} from './mock-me.component';
-import {FormsModule} from '@angular/forms';
+import { createComponentFactory, Spectator } from '@ngneat/spectator';
+import { MockComponents } from 'ng-mocks';
+import { MockMeComponent } from './mock-me.component';
+import { FormsModule } from '@angular/forms';
 
 describe('MockMeComponent', () => {
   let spectator: Spectator<MockMeComponent>;
@@ -9,7 +9,7 @@ describe('MockMeComponent', () => {
   const componentFactory = createComponentFactory({
     component: MockMeComponent,
     declarations: MockComponents(),
-    imports: [FormsModule]
+    imports: [FormsModule],
   });
 
   beforeEach(() => void (spectator = componentFactory()));
@@ -40,7 +40,9 @@ describe('MockMeComponent', () => {
     it('should show typed value - somehow', () => {
       spectator.typeInElement('some veryloongstrange value', 'input');
 
-      expect('.display-input').toHaveText(text => text.includes('veryloongstrange'));
+      expect('.display-input').toHaveText((text) =>
+        text.includes('veryloongstrange')
+      );
     });
 
     it('should show typed value somewhere in container', () => {
@@ -48,7 +50,7 @@ describe('MockMeComponent', () => {
 
       expect('.container').toHaveDescendantWithText({
         selector: 'p',
-        text: 'inputData: some value'
+        text: 'inputData: some value',
       });
     });
 
@@ -59,13 +61,13 @@ describe('MockMeComponent', () => {
 
   describe('style', () => {
     it('should have black border', () => {
-      expect('.container').toHaveStyle({'border-color': '#000000'});
+      expect('.container').toHaveStyle({ 'border-color': '#000000' });
     });
 
     it('should switch border color to red after button click', () => {
       spectator.click('button');
 
-      expect('div.container').toHaveStyle({'border-color': '#FF0000'});
+      expect('div.container').toHaveStyle({ 'border-color': '#FF0000' });
     });
   });
 });

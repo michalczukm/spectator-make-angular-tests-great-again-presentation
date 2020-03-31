@@ -6,7 +6,6 @@ import { TshirtItemComponent } from './components/tshirt-item/tshirt-item.compon
 @NgModule({
   declarations: [TshirtsComponent, TshirtItemComponent],
   imports: [CommonModule],
-  exports: [TshirtsComponent]
+  exports: [TshirtsComponent],
 })
-export class TshirtsModule {
-}
+export class TshirtsModule {}

@@ -1,7 +1,17 @@
 <div class="card text-center">
-  <img [src]="item.imageUrl" [attr.alt]="item.name" class="card-img-top tshirts-card-img">
+  <img
+    [src]="item.imageUrl"
+    [attr.alt]="item.name"
+    class="card-img-top tshirts-card-img"
+  />
   <div class="card-block">
     <h4 class="card-title">{{ item.name }}</h4>
-    <button *ngIf="!buyDisabled" (click)="buyClicked.emit(item)" class="btn btn-primary">Buy</button>
+    <button
+      *ngIf="!buyDisabled"
+      (click)="buyClicked.emit(item)"
+      class="btn btn-primary"
+    >
+      Buy
+    </button>
   </div>
 </div>

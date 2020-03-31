@@ -1,5 +1,5 @@
-import {Spectator, createComponentFactory} from '@ngneat/spectator';
-import {TshirtItemComponent} from './tshirt-item.component';
+import { Spectator, createComponentFactory } from '@ngneat/spectator';
+import { TshirtItemComponent } from './tshirt-item.component';
 
 describe('TshirtItemComponentSpectator', () => {
   let spectator: Spectator<TshirtItemComponent>;
@@ -8,15 +8,17 @@ describe('TshirtItemComponentSpectator', () => {
     component: TshirtItemComponent,
   });
 
-  beforeEach(() => void (
-    spectator = createComponent({
-      props: {
-        item: {
-          imageUrl: 'https://example.com/image.png',
-          name: 'some tshirt'
-        }
-      }
-    })));
+  beforeEach(
+    () =>
+      void (spectator = createComponent({
+        props: {
+          item: {
+            imageUrl: 'https://example.com/image.png',
+            name: 'some tshirt',
+          },
+        },
+      }))
+  );
 
   it('should create', () => {
     expect(spectator.component).toBeTruthy();
@@ -36,10 +38,10 @@ describe('TshirtItemComponentSpectator', () => {
 
   describe('buy item', () => {
     it('should emit buy item event on click', () => {
-      spectator.component.buyClicked.subscribe(actualEvent => {
+      spectator.component.buyClicked.subscribe((actualEvent) => {
         expect(actualEvent).toEqual({
           imageUrl: 'https://example.com/image.png',
-          name: 'some tshirt'
+          name: 'some tshirt',
         });
       });
 
@@ -50,11 +52,10 @@ describe('TshirtItemComponentSpectator', () => {
   describe('disable buy', () => {
     it('should disable buy if configured', () => {
       spectator.setInput({
-        buyDisabled: true
+        buyDisabled: true,
       });
 
       expect('button').not.toExist();
     });
   });
-})
-;
+});

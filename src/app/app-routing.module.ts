@@ -1,25 +1,26 @@
-import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
-import {TshirtsComponent} from './tshirts';
-import {ContactComponent} from './contact';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { TshirtsComponent } from './tshirts';
+import { ContactComponent } from './contact';
 
 const routes: Routes = [
   {
-    path: '', pathMatch: 'full', redirectTo: 'tshirts'
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'tshirts',
   },
   {
     path: 'tshirts',
-    component: TshirtsComponent
+    component: TshirtsComponent,
   },
   {
     path: 'contact',
-    component: ContactComponent
-  }
+    component: ContactComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}

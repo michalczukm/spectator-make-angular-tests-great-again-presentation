@@ -1,15 +1,17 @@
-import {Injectable} from '@angular/core';
-import {Observable, of} from 'rxjs';
-import {Tshirt} from './model/tshirt.model';
-import {PriorityClientsService} from './priority-clients.service';
-import {ComplaintsService} from './complaints.service';
+import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { Tshirt } from './model/tshirt.model';
+import { PriorityClientsService } from './priority-clients.service';
+import { ComplaintsService } from './complaints.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CartService {
-  constructor(private priorityClientsService: PriorityClientsService, private complaintsService: ComplaintsService) {
-  }
+  constructor(
+    private priorityClientsService: PriorityClientsService,
+    private complaintsService: ComplaintsService
+  ) {}
 
   buy(thirt: Tshirt): Observable<void> {
     console.log(`${thirt.name} bought!`);
@@ -21,7 +23,7 @@ export class CartService {
     if (this.priorityClientsService.isPriority(clientId)) {
       return this.complaintsService.send({
         clientId,
-        message
+        message,
       });
     } else {
       // why not 10

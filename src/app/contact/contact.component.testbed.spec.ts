@@ -1,11 +1,11 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-import {ToastrModule, ToastrService} from 'ngx-toastr';
-import {ContactComponent} from './contact.component';
-import {By} from '@angular/platform-browser';
-import {MockMeComponent} from './components/mock-me/mock-me.component';
-import {WithContentComponent} from './components/with-content/with-content.component';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { ContactComponent } from './contact.component';
+import { By } from '@angular/platform-browser';
+import { MockMeComponent } from './components/mock-me/mock-me.component';
+import { WithContentComponent } from './components/with-content/with-content.component';
 
 describe('ContactComponentTestBed', () => {
   let component: ContactComponent;
@@ -13,10 +13,13 @@ describe('ContactComponentTestBed', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ContactComponent, MockMeMockComponent, WithContentComponent],
-      imports: [ToastrModule.forRoot()]
-    })
-      .compileComponents();
+      declarations: [
+        ContactComponent,
+        MockMeMockComponent,
+        WithContentComponent,
+      ],
+      imports: [ToastrModule.forRoot()],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -31,10 +34,14 @@ describe('ContactComponentTestBed', () => {
 
   describe('communication with mocked component', () => {
     it('should display toastr', () => {
-      const toastrService: ToastrService = TestBed.get<ToastrService>(ToastrService);
+      const toastrService: ToastrService = TestBed.get<ToastrService>(
+        ToastrService
+      );
       spyOn(toastrService, 'info');
 
-      const mockMeComponent: MockMeComponent = fixture.debugElement.query(By.css('app-mock-me')).componentInstance;
+      const mockMeComponent: MockMeComponent = fixture.debugElement.query(
+        By.css('app-mock-me')
+      ).componentInstance;
 
       mockMeComponent.hitted.emit(10);
 
@@ -43,10 +50,9 @@ describe('ContactComponentTestBed', () => {
   });
 });
 
-
 @Component({
   selector: 'app-mock-me',
-  template: ``
+  template: ``,
 })
 export class MockMeMockComponent {
   @Output() hitted: EventEmitter<number> = new EventEmitter<number>();
