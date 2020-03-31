@@ -12,7 +12,7 @@ body {
 
 .header {
   padding-bottom: 1rem;
-  border-bottom: .05rem solid #e5e5e5;
+  border-bottom: 0.05rem solid #e5e5e5;
 }
 
 .header h3 {
@@ -24,7 +24,7 @@ body {
 .footer {
   padding-top: 1.5rem;
   color: #777;
-  border-top: .05rem solid #e5e5e5;
+  border-top: 0.05rem solid #e5e5e5;
 }
 
 @media screen and (min-width: 48em) {
@@ -41,10 +41,10 @@ body {
 
 .jumbotron {
   text-align: center;
-  border-bottom: .05rem solid #e5e5e5;
+  border-bottom: 0.05rem solid #e5e5e5;
 }
 .jumbotron .btn {
-  padding: .75rem 1.5rem;
+  padding: 0.75rem 1.5rem;
   font-size: 1.5rem;
 }
 

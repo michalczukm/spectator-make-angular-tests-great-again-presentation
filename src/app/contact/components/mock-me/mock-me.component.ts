@@ -1,9 +1,9 @@
-import {Component, EventEmitter, HostListener, Output} from '@angular/core';
+import { Component, EventEmitter, HostListener, Output } from "@angular/core";
 
 @Component({
-  selector: 'app-mock-me',
-  templateUrl: './mock-me.component.html',
-  styleUrls: ['./mock-me.component.css']
+  selector: "app-mock-me",
+  templateUrl: "./mock-me.component.html",
+  styleUrls: ["./mock-me.component.css"],
 })
 export class MockMeComponent {
   @Output() hitted: EventEmitter<number> = new EventEmitter<number>();
@@ -13,7 +13,7 @@ export class MockMeComponent {
 
   private hitCounter = 0;
 
-  @HostListener('click')
+  @HostListener("click")
   onClick(): void {
     this.hitted.emit(++this.hitCounter);
   }

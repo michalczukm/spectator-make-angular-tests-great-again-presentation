@@ -1,4 +1,4 @@
 export type Tshirt = {
   name: string;
-  imageUrl: string
+  imageUrl: string;
 };

@@ -1,71 +1,73 @@
-import {createComponentFactory, Spectator} from '@ngneat/spectator';
-import {MockComponents} from 'ng-mocks';
-import {MockMeComponent} from './mock-me.component';
-import {FormsModule} from '@angular/forms';
+import { createComponentFactory, Spectator } from "@ngneat/spectator";
+import { MockComponents } from "ng-mocks";
+import { MockMeComponent } from "./mock-me.component";
+import { FormsModule } from "@angular/forms";
 
-describe('MockMeComponent', () => {
+describe("MockMeComponent", () => {
   let spectator: Spectator<MockMeComponent>;
 
   const componentFactory = createComponentFactory({
     component: MockMeComponent,
     declarations: MockComponents(),
-    imports: [FormsModule]
+    imports: [FormsModule],
   });
 
   beforeEach(() => void (spectator = componentFactory()));
 
-  it('should create', () => {
+  it("should create", () => {
     expect(spectator.component).toBeTruthy();
   });
 
-  describe('input', () => {
-    it('should have empty value if not set', () => {
-      expect('input').toBeEmpty();
+  describe("input", () => {
+    it("should have empty value if not set", () => {
+      expect("input").toBeEmpty();
     });
 
-    it('should have value', () => {
-      spectator.typeInElement('I wrote this!', 'input');
+    it("should have value", () => {
+      spectator.typeInElement("I wrote this!", "input");
 
       spectator.detectChanges();
 
-      expect('input').toHaveValue('I wrote this!');
+      expect("input").toHaveValue("I wrote this!");
     });
 
-    it('should show typed value', () => {
-      spectator.typeInElement('some value', 'input');
+    it("should show typed value", () => {
+      spectator.typeInElement("some value", "input");
 
-      expect('.display-input').toHaveText('inputData: some value');
+      expect(".display-input").toHaveText("inputData: some value");
     });
 
-    it('should show typed value - somehow', () => {
-      spectator.typeInElement('some veryloongstrange value', 'input');
+    it("should show typed value - somehow", () => {
+      spectator.typeInElement("some veryloongstrange value", "input");
 
-      expect('.display-input').toHaveText(text => text.includes('veryloongstrange'));
+      expect(".display-input").toHaveText((text) =>
+        text.includes("veryloongstrange")
+      );
     });
 
-    it('should show typed value somewhere in container', () => {
-      spectator.typeInElement('some value', 'input');
+    it("should show typed value somewhere in container", () => {
+      spectator.typeInElement("some value", "input");
 
-      expect('.container').toHaveDescendantWithText({
-        selector: 'p',
-        text: 'inputData: some value'
+      expect(".container").toHaveDescendantWithText({
+        selector: "p",
+        text: "inputData: some value",
       });
     });
 
-    it('should display typed value with proper class', () => {
-      expect('p').toHaveClass('display-input');
+    it("should display typed value with proper class", () => {
+      expect("p").toHaveClass("display-input");
     });
   });
 
-  describe('style', () => {
-    it('should have black border', () => {
-      expect('.container').toHaveStyle({'border-color': '#000000'});
+  describe("style", () => {
+    it("should have black border", () => {
+      expect(".container").toHaveStyle({ "border-color": "#000000" });
     });
 
-    it('should switch border color to red after button click', () => {
-      spectator.click('button');
+    it("should switch border color to red after button click", () => {
+      spectator.click("button");
 
-      expect('div.container').toHaveStyle({'border-color': '#FF0000'});
+      expect("div.container").toHaveStyle({ "border-color": "#FF0000" });
     });
   });
 });
